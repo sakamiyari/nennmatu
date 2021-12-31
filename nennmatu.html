@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            max-width: 400;
+            text-align: center;
+            }
+        p{
+            margin-top: 3em;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <p id="countdown"></p>
+    <script>
+        setInterval(keisan,1000);
+        function keisan(){
+            let $count=document.getElementById("countdown");
+            let ima=new Date();
+            let shinnnen=new Date("2022 1/1 0:00:00");
+            let rainen=Math.floor((shinnnen-ima)/1000);
+            console.log(rainen)
+            let jikan=Math.floor(rainen/3600)
+            let hun=Math.floor((rainen%3600)/60);
+            let byou=(rainen%3600)%60
+            console.log(jikan+"時間"+hun+"分"+byou+"秒");
+            $count.innerText="来年まで"+jikan+"時間"+hun+"分"+byou+"秒"
+        }
+        keisan()
+    </script>
+</body>
+</html>
